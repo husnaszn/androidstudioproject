@@ -7,17 +7,70 @@
     android:layout_height="match_parent"
     tools:context=".activity2">
 
-    <TextView
-        android:id="@+id/textView"
+    <Button
+        android:id="@+id/op1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="356dp"
-        android:layout_marginEnd="142dp"
-        android:layout_marginBottom="356dp"
-        android:text="hello this is screen 2"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="537dp"
+        android:layout_marginEnd="35dp"
+        android:text="A"
+        app:layout_constraintBottom_toTopOf="@+id/op3"
+        app:layout_constraintEnd_toStartOf="@+id/op2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/op2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="537dp"
+        android:layout_marginEnd="102dp"
+        android:text="B"
+        app:layout_constraintBottom_toTopOf="@+id/op4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/op1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/op3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="98dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="98dp"
+        android:text="C"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/op4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/op1" />
+
+    <Button
+        android:id="@+id/op4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="102dp"
+        android:layout_marginBottom="98dp"
+        android:text="D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/op3"
+        app:layout_constraintTop_toBottomOf="@+id/op2" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="106dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="314dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="196dp"
+        android:text="Switch"
+        app:layout_constraintBottom_toTopOf="@+id/op1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
