@@ -59,18 +59,20 @@
         app:layout_constraintStart_toEndOf="@+id/op3"
         app:layout_constraintTop_toBottomOf="@+id/op2" />
 
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="106dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="163dp"
-        android:layout_marginTop="314dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="196dp"
-        android:text="Switch"
-        app:layout_constraintBottom_toTopOf="@+id/op1"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="173dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginEnd="180dp"
+        android:layout_marginBottom="352dp"
+        android:text="question word"
+        android:enabled="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
