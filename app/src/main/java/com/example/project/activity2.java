@@ -1,6 +1,7 @@
 package com.example.project;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,17 +29,81 @@ public class activity2 extends AppCompatActivity {
 
         TextView textView = findViewById(R.id.textView);
         newWord();
+//        newAns();
         textView.setText(curWord.getQuesWord());
         Toast.makeText(activity2.this, curWord.getAnsChoi(), Toast.LENGTH_SHORT).show();
 
-
-//        System.out.println(Math.random()*(max-0+1));
     }
 
+
+
     questionWord curWord = new questionWord();
-    int max = setWordList().size();
+    int maxwl = setWordList().size();
+
+    int tempsa;
+
+    int tempwl = (int) (Math.random()*(maxwl ));
+
+
     public void newWord(){
-        curWord = setWordList().get((int) (Math.random()*(max-0+1)));
+        curWord = setWordList().get(tempwl);
+        String correct = curWord.getAnsChoi();
+        setTempwl();
+        String fone = setWordList().get(tempwl).getAnsChoi();
+        setTempwl();
+        String ftwo = setWordList().get(tempwl).getAnsChoi();
+        setTempwl();
+        String fthree = setWordList().get(tempwl).getAnsChoi();
+
+
+            ArrayList<String> setAns = new ArrayList<>();
+            setAns.add(fone);
+            setAns.add(ftwo);
+            setAns.add(fthree);
+            setAns.add(correct);
+
+
+
+
+
+//        setAns().add(fone);
+//        setAns().add(ftwo);
+//        setAns().add(fthree);
+//        setAns().add(correct);
+
+        Button A = findViewById(R.id.op1);
+        Button B = findViewById(R.id.op2);
+        Button C = findViewById(R.id.op3);
+        Button D = findViewById(R.id.op4);
+
+        int maxsa = setAns.size();
+        tempsa = (int) (Math.random()*(maxsa-1));
+        A.setText(setAns.get(tempsa));
+        setAns.remove(tempsa);
+        maxsa = setAns.size();
+        tempsa = (int) (Math.random()*(maxsa));
+        B.setText(setAns.get(tempsa));
+        setAns.remove(tempsa);
+        maxsa = setAns.size();
+        tempsa = (int) (Math.random()*(maxsa));
+        C.setText(setAns.get(tempsa));
+        setAns.remove(tempsa);
+        maxsa = setAns.size();
+        tempsa = (int) (Math.random()*(maxsa));
+        D.setText(setAns.get(tempsa));
+        setAns.remove(tempsa);
+
+    }
+
+
+
+    public void newAns(){
+
+    }
+
+
+    public void setTempwl(){
+        tempwl = (int) (Math.random()*(maxwl ));
     }
 
     public ArrayList<questionWord> setWordList(){
