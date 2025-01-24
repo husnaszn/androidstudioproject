@@ -82,7 +82,7 @@
         android:layout_marginStart="175dp"
         android:layout_marginEnd="178dp"
         android:layout_marginBottom="200dp"
-        android:text="forms of transportation"
+        android:text="arabic phonetics"
         android:textSize="80px"
         android:fontFamily="sans-serif-black"
         app:layout_constraintBottom_toTopOf="@+id/textView"
@@ -119,5 +119,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

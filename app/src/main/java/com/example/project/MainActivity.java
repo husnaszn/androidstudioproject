@@ -43,11 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
        disButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                if (disButton.getVisibility()== View.VISIBLE){
-                    disButton.setVisibility(View.GONE);
-                } else {
-                    disButton.setVisibility(View.VISIBLE);
-                }
+                Intent intent = new Intent(MainActivity.this, activity1.class);
+                startActivity(intent);
             }
 
         });

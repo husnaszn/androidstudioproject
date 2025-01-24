@@ -15,13 +15,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 
-public class activity2 extends AppCompatActivity {
+public class activity1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity2);
+        setContentView(R.layout.activity_1);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -34,14 +34,19 @@ public class activity2 extends AppCompatActivity {
 
         backButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                Toast.makeText(activity2.this, "should be switching", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(activity2.this, MainActivity.class);
+                Toast.makeText(activity1.this, "should be switching", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(activity1.this, MainActivity.class);
                 startActivity(intent);
             }
 
         });
 
+
     }
+
+
+
+
 
 
 
@@ -62,7 +67,7 @@ public class activity2 extends AppCompatActivity {
 
         TextView textView = findViewById(R.id.textView);
         TextView streakView = findViewById(R.id.streakView);
-        textView.setText("what is the meaning of " + curWord.getQuesWord() + " in english?");
+        textView.setText("what sound does the letter " + curWord.getQuesWord() + " make?");
         streakView.setText("streak: " + streak);
 
         String correct = setWordList().get(tempwl).getAnsChoi();
@@ -76,10 +81,10 @@ public class activity2 extends AppCompatActivity {
 
 
         ArrayList<String> setAns = new ArrayList<>();
-            setAns.add(fone);
-            setAns.add(ftwo);
-            setAns.add(fthree);
-            setAns.add(correct);
+        setAns.add(fone);
+        setAns.add(ftwo);
+        setAns.add(fthree);
+        setAns.add(correct);
 
 
         Button A = findViewById(R.id.op1);
@@ -99,16 +104,16 @@ public class activity2 extends AppCompatActivity {
             b.setText(setAns.get(tempsa));
             setAns.remove(tempsa);
 
-           b.setOnClickListener(new View.OnClickListener(){
+            b.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View v) {
                     if (b.getText()==curWord.getAnsChoi()){
-                    Toast.makeText(activity2.this, "correct!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity1.this, "correct!", Toast.LENGTH_SHORT).show();
                         streak++;
                         newWord();
 
                     }else {
-                        Toast.makeText(activity2.this, "incorrect..", Toast.LENGTH_SHORT).show();
-                        Toast.makeText(activity2.this, "streak of " + streak + " lost.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity1.this, "incorrect..", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity1.this, "streak of " + streak + " lost.", Toast.LENGTH_SHORT).show();
                         streak = 0;
                         newWord();
 
@@ -124,24 +129,44 @@ public class activity2 extends AppCompatActivity {
 
 
     public void setTempwl(){
-    tempwl = (int) (Math.random()*(maxwl ));
+        tempwl = (int) (Math.random()*(maxwl ));
 
     }
 
     public ArrayList<questionWord> setWordList(){
         ArrayList<questionWord> temp = new ArrayList<>();
-        temp.add(new questionWord("قطار","train"));
-        temp.add(new questionWord("سيارة","car"));
-        temp.add(new questionWord("دراجة","bicycle"));
-        temp.add(new questionWord("حافلة","bus"));
-        temp.add(new questionWord("دراجة نارية","motorcycle"));
-        temp.add(new questionWord("جمل","camel"));
-        temp.add(new questionWord("سفينة","ship"));
-        temp.add(new questionWord("طائرة","airplane"));
-        temp.add(new questionWord("حمار","donkey"));
-        temp.add(new questionWord("تاكسي","taxi"));
-                return temp;
+        temp.add(new questionWord("أ","aa"));
+        temp.add(new questionWord("ب","b"));
+        temp.add(new questionWord("ت","t"));
+        temp.add(new questionWord("ث","tee(th)"));
+        temp.add(new questionWord("ج","j"));
+        temp.add(new questionWord("ح","h (heavy)"));
+        temp.add(new questionWord("خ","kh"));
+        temp.add(new questionWord("د","d (light)"));
+        temp.add(new questionWord("ذ","(th)is"));
+        temp.add(new questionWord("ر","r"));
+        temp.add(new questionWord("ز","z"));
+        temp.add(new questionWord("س","s (light)"));
+        temp.add(new questionWord("ش","sh"));
+        temp.add(new questionWord("ص","s (heavy)"));
+        temp.add(new questionWord("ض","d (heavy)"));
+        temp.add(new questionWord("ﻁ","t"));
+        temp.add(new questionWord("ظ","th (heavy)"));
+        temp.add(new questionWord("ع","a (throat)"));
+        temp.add(new questionWord("غ","gh"));
+        temp.add(new questionWord("ف","f"));
+        temp.add(new questionWord("ق","q"));
+        temp.add(new questionWord("ك","k"));
+        temp.add(new questionWord("ل","l"));
+        temp.add(new questionWord("م","m"));
+        temp.add(new questionWord("ن","n"));
+        temp.add(new questionWord("ه","h (light)"));
+        temp.add(new questionWord("و","w or oo"));
+        temp.add(new questionWord("ي","ee or y"));
+        return temp;
     }
+
+
 
 
 
