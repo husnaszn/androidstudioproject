@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         testButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "should be switching", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "should be switching", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, activity2.class);
                 startActivity(intent);
             }

@@ -34,19 +34,14 @@ public class activity1 extends AppCompatActivity {
 
         backButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                Toast.makeText(activity1.this, "should be switching", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(activity2.this, "should be switching", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(activity1.this, MainActivity.class);
                 startActivity(intent);
             }
 
         });
 
-
     }
-
-
-
-
 
 
 
@@ -70,21 +65,37 @@ public class activity1 extends AppCompatActivity {
         textView.setText("what sound does the letter " + curWord.getQuesWord() + " make?");
         streakView.setText("streak: " + streak);
 
-        String correct = setWordList().get(tempwl).getAnsChoi();
-        setTempwl();
-        String fone = setWordList().get(tempwl).getAnsChoi();
-        setTempwl();
-        String ftwo = setWordList().get(tempwl).getAnsChoi();
-        setTempwl();
-        String fthree = setWordList().get(tempwl).getAnsChoi();
 
+        String fone = "";
+        String ftwo = "";
+        String fthree = "";
+        String correct = "";
 
+        ArrayList<String> Ans = new ArrayList<>();
+        Ans.add(fone);
+        Ans.add(ftwo);
+        Ans.add(fthree);
+        Ans.add(correct);
 
         ArrayList<String> setAns = new ArrayList<>();
-        setAns.add(fone);
-        setAns.add(ftwo);
-        setAns.add(fthree);
-        setAns.add(correct);
+
+        for (int i = 0; i < Ans.size(); i++) {
+            for (int j = 0; j < setAns.size(); j++) {
+                if (setAns.get(j)==setWordList().get(tempwl).getAnsChoi()){
+                    System.out.println(Ans.get(i) + " " + setWordList().get(tempwl).getAnsChoi());
+                    setTempwl();
+                }
+            }
+            Ans.set(i, setWordList().get(tempwl).getAnsChoi());
+            System.out.println(Ans.get(i) + " " + setWordList().get(tempwl).getAnsChoi());
+            setTempwl();
+            setAns.add(Ans.get(i));
+
+        }
+
+
+
+
 
 
         Button A = findViewById(R.id.op1);
@@ -99,10 +110,13 @@ public class activity1 extends AppCompatActivity {
         ansBut.add(D);
 
         for (Button b: ansBut){
+            System.out.println(setAns);
             int maxsa = setAns.size();
             tempsa = (int) (Math.random()*(maxsa-1));
             b.setText(setAns.get(tempsa));
             setAns.remove(tempsa);
+
+
 
             b.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View v) {
@@ -112,7 +126,7 @@ public class activity1 extends AppCompatActivity {
                         newWord();
 
                     }else {
-                        Toast.makeText(activity1.this, "incorrect..", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity1.this, "incorrect. the correct answer was: " + curWord.getAnsChoi() + ".", Toast.LENGTH_SHORT).show();
                         Toast.makeText(activity1.this, "streak of " + streak + " lost.", Toast.LENGTH_SHORT).show();
                         streak = 0;
                         newWord();
@@ -163,10 +177,9 @@ public class activity1 extends AppCompatActivity {
         temp.add(new questionWord("ه","h (light)"));
         temp.add(new questionWord("و","w or oo"));
         temp.add(new questionWord("ي","ee or y"));
+
         return temp;
     }
-
-
 
 
 

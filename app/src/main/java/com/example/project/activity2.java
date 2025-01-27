@@ -34,7 +34,7 @@ public class activity2 extends AppCompatActivity {
 
         backButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                Toast.makeText(activity2.this, "should be switching", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(activity2.this, "should be switching", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(activity2.this, MainActivity.class);
                 startActivity(intent);
             }
@@ -82,6 +82,7 @@ public class activity2 extends AppCompatActivity {
         for (int i = 0; i < Ans.size(); i++) {
             for (int j = 0; j < setAns.size(); j++) {
                 if (setAns.get(j)==setWordList().get(tempwl).getAnsChoi()){
+                    System.out.println(Ans.get(i) + " " + setWordList().get(tempwl).getAnsChoi());
                     setTempwl();
                 }
             }
